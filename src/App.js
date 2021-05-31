@@ -1,5 +1,5 @@
 import React from "react";
-import { Route, BrowserRouter } from "react-router-dom";
+import { Route, Switch, Redirect, BrowserRouter } from "react-router-dom";
 import Nav from "./Nav";
 import DogList from "./DogList"
 import DogDetails from "./DogDetails"
@@ -17,15 +17,15 @@ function App(props) {
     <div className="App">
       <BrowserRouter>
         <Nav names={props.dogs.map(dog => dog.name)}/>
-        {/* <Switch>
+         <Switch>
           <Route exact path="/dogs" >
-            <DogList dogs={props.dogs}/> // what props will this need?
-      </Route>
+            <DogList dogs={props.dogs}/> 
+          </Route>
           <Route path="/dogs/:name" >
-            <DogDetails /> // what props will this need?
-      </Route>
+            <DogDetails dogs={props.dogs}/> 
+          </Route>
           <Redirect to="/dogs" />
-        </Switch> */}
+        </Switch> 
       </BrowserRouter>
     </div>
   );
