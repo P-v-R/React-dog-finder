@@ -1,16 +1,26 @@
 import React from "react";
-import { Link } from "react-router-dom";
+import { NavLink } from "react-router-dom";
+
+
+/**
+ * Nav
+ *  Props: array of dog names 
+ *      ["name","otherName",...]
+ * todo - more detail here!
+ */
 
 function Nav({ names }) {
-  console.log("prop for name ===>", names)
+  // could save map to a var to clean up the return route 
   return (
     <div className="NavBar">
       {names.map(dogName => (
         <span key={dogName}>
-          <Link to={`/dogs/${dogName}`}>Show me {dogName}!</Link>
-          <span>  </span>
+          <NavLink exact to={`/dogs/${dogName}`}>Show me {dogName}!</NavLink>
         </span>
       ))}
+      <span>
+      <NavLink to={`/dogs`}>🏡 HOME 🏡 </NavLink>
+      </span>
     </div>
   );
 }

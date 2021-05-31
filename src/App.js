@@ -10,9 +10,14 @@ import tubby from "./dogs/tubby.jpg"
 import duke from "./dogs/duke.jpg"
 
 
-
+/** render DogFinder application 
+ * Props: object of multiple dogs and their information 
+ *          {dogs:{name:"...", age:int, src:img, facts["...","..."]}, ...}
+ * navbar displayed on all components 
+ * app -> DogList -> DogDetails 
+ */
 function App(props) {
-  console.log("props ==>", props)
+  console.log("props ==>", props);
   return (
     <div className="App">
       <BrowserRouter>
@@ -21,7 +26,7 @@ function App(props) {
           <Route exact path="/dogs" >
             <DogList dogs={props.dogs}/> 
           </Route>
-          <Route path="/dogs/:name" >
+          <Route exact path="/dogs/:name" >
             <DogDetails dogs={props.dogs}/> 
           </Route>
           <Redirect to="/dogs" />
