@@ -1,6 +1,7 @@
 import React from "react";
-import {Redirect, useParams} from 'react-router-dom';
+import {useParams} from 'react-router-dom';
 
+import DogFinder from './DogFinder';
 
 // TODO could have a helper search component to find the 
 // dog info before this component is rendered
@@ -15,11 +16,8 @@ import {Redirect, useParams} from 'react-router-dom';
  */
 function DogDetails({dogs}){
   const {name} = useParams();
-  const dog = dogs.find(d => d.name === name);
+  const dog = DogFinder(dogs, name);
 
-  if(!dog){
-    return <Redirect to="/dogs" />
-  }
   const dogFacts = dog.facts.map(f =><li key={f}>{f}</li>);
 
   return (
